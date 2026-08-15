@@ -117,10 +117,9 @@ async def cmd_text(args: argparse.Namespace) -> None:
 
 
 async def cmd_image(args: argparse.Namespace) -> None:
-    
     label_h = _resolve_label_height(args)
     async with connect(args.address, classic=args.classic, channel=args.channel) as pc:
-         all_ok = True
+        all_ok = True
         for path in args.path:
             img = Image.open(path)
             print(f"Printing {path}...")
@@ -136,6 +135,7 @@ async def cmd_image(args: argparse.Namespace) -> None:
             print("All images printed successfully.")
         else:
             print("Some images failed to print.")
+
 
 async def cmd_set(args: argparse.Namespace) -> None:
     async with connect(args.address, classic=args.classic, channel=args.channel) as pc:
